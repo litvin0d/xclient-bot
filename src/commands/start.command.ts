@@ -12,7 +12,7 @@ export class StartCommand extends Command {
 	handle(): void {
 		const startKeyboard = new InlineKeyboard()
 			.text('Хочу стать клиентом', 'become_client').row()
-			.text('Я уже смешарик', 'already_client');
+			.text('Я уже клиент', 'already_client');
 
 		this.bot.command('start', async (ctx) => {
 			ctx.session.state = 'default';
