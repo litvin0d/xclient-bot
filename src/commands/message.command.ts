@@ -10,17 +10,25 @@ export class MessageCommand extends Command {
 
 	handle(): void {
 		this.bot.on('message', async (ctx) => {
+			if (ctx.session.state === 'default')
+				return await ctx.reply('Укажите являетесь ли вы клиентом.');
+
+			if (ctx.session.state === 'active')
+				return await ctx.reply('Спасибо, что выбрали нас.');
+
 			const message = ctx.message.text;
 
 			if (!message)
-				return await ctx.reply('Бот поддерживает только текстовые сообщения');
+				return await ctx.reply('Бот поддерживает только текстовые сообщения.');
 
 			await ctx.replyWithChatAction('typing');
 
-			const prompt = 'Если клиент пришлёт номер договора в формате 00-00-XX (например: 24-24-DEV, 22-22-SUP, 33-334-SEO, 26-02-PPS, 28-29-HOST), то поблагодари за это. Не здоровайся. Будь креативнее. Если его сообщение не будет содержать номер договора, то попроси его отправить номер договора в формате 00-00-XX.';
+			const prompt = 'Клиент может прислать номер договора строго в формате 00-00-XX (например: 24-24-DEV, 22-22-SUP, 33-334-SEO, 26-02-PPS, 28-29-HOST), если договор был прислан, то ты должен поблагодарить клиента за это (например: Благодарю за номер договора.). Запрещается после того как клиент отправил номер договора здороваться с клиентом. Если клиент не прислал номер документа, то обязательно попроси его прислать номер документа в формате 00-00-XX';
 			const res = await apiService.postText(prompt, message);
 
 			await ctx.reply(res);
+
+			ctx.session.state = 'active';
 		});
 	}
 }

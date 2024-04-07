@@ -15,7 +15,7 @@ export class ApiService implements IApiInterface {
 		return ApiService.instance;
 	}
 
-	async postText(prompt: string, trigger: string, temp: number = 0.7): Promise<string> {
+	async postText(prompt: string, trigger: string, temp: number = 0.5): Promise<string> {
 		const data = {
 			modelUri: this.configService.get('YANDEX_GPT_MODEL'),
 			completionOptions: {

@@ -29,6 +29,9 @@ export class StartCommand extends Command {
 
 		this.bot.callbackQuery('become_client', async (ctx) => {
 			await ctx.answerCallbackQuery();
+
+			ctx.session.state = 'default';
+
 			await ctx.replyWithChatAction('typing');
 
 			const prompt = 'Ответь на запрос "Хочу стать клиентом" просьбой обратиться к менеджеру и предоставь контакт менеджера: @litvinod. Будь креативнее. Пример: Для этого свяжитесь, пожалуйста, с нашим менеджером — @litvinod.';

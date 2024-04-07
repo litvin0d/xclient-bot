@@ -17,6 +17,8 @@
   "description": "",
   "dependencies": {
     "@grammyjs/auto-retry": "^1.1.1",
+    "@grammyjs/runner": "^2.0.3",
+    "@grammyjs/transformer-throttler": "^1.2.1",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "grammy": "^1.22.4"

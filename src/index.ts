@@ -1,5 +1,7 @@
 import { GrammyError, HttpError, Bot as TelegramBot, session } from 'grammy';
-import { autoRetry } from '@grammyjs/auto-retry';
+// import { autoRetry } from '@grammyjs/auto-retry';
+import { apiThrottler } from '@grammyjs/transformer-throttler';
+import { run } from '@grammyjs/runner';
 import { configServiceInstance } from './config/config.service';
 import type { IConfigService } from './config/config.interface';
 import type { IBotContext, ISessionData } from './context/context.interface';
@@ -15,10 +17,13 @@ class Bot {
 	constructor(private readonly configService: IConfigService) {
 		this.bot = new TelegramBot<IBotContext>(this.configService.get('TELEGRAM_BOT_TOKEN'));
 		this.bot.use(session({ initial: (): ISessionData => ({ state: 'default' }) }));
-		this.bot.api.config.use(autoRetry({
-			maxRetryAttempts: 1,
-			maxDelaySeconds: 5,
-		}));
+		// this.bot.api.config.use(autoRetry({
+		// 	maxRetryAttempts: 1,
+		// 	maxDelaySeconds: 5,
+		// }));
+
+		const throttler = apiThrottler();
+		this.bot.api.config.use(throttler);
 
 		this.bot.catch((err) => {
 			const ctx = err.ctx;
@@ -40,7 +45,7 @@ class Bot {
 		for (const command of this.commands)
 			command.handle();
 
-		this.bot.start();
+		run(this.bot);
 	}
 }
 
