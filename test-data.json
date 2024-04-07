@@ -1,0 +1,57 @@
+[
+    {
+        "company": "Xpage",
+        "PM": "Бодрягин",
+        "document_type": "Договор",
+        "id": "24-24-DEV",
+        "date": "10.01.2024",
+        "addictional_to": "-",
+        "type": "Разработка сайта",
+        "sum": "р.1 000 000",
+        "document": "https://docs.google.com/document/d/1N7o3KVimhMM2dhQnnMQHQlUd3eEl4ZF0hGmaPkMFBwY/edit?usp=sharing"
+    },
+    {
+        "company": "Gigaschool",
+        "PM": "Трухачева",
+        "document_type": "Доп. соглашение",
+        "id": "-",
+        "date": "10.01.2023",
+        "addictional_to": "22-22-SUP",
+        "type": "Тех.под",
+        "sum": "р.500 000",
+        "document": "https://docs.google.com/document/d/1CWXV676b5LqeuwTUjBjVB2Bbhq_dNTTgE0DvTP9gyqQ/edit?usp=sharing"
+    },
+    {
+        "company": "People DO",
+        "PM": "Бодрягин",
+        "document_type": "Договор",
+        "id": "33-334-SEO",
+        "date": "11.11.2024",
+        "addictional_to": "-",
+        "Тип услуги": "Продвижение сайта SEO (г.Челябинск)",
+        "sum": "р.100 000",
+        "document": "https://docs.google.com/document/d/1ONVki06B4HLi9A56GXX5XKNj5f56x9om8J_fqfMabEM/edit?usp=sharing"
+    },
+    {
+        "company": "Napoleon IT",
+        "PM": "Трухачева",
+        "document_type": "Договор",
+        "id": "26-02-PPS",
+        "date": "01.01.2024",
+        "addictional_to": "-",
+        "Тип услуги": "Контекстная реклама Яндекс.Директ",
+        "sum": "р.150 000",
+        "document": "https://docs.google.com/document/d/1MuMWPAbj_u6og-_-Yb4vDyqW8cGcCqaDCrTAtgj8lpo/edit?usp=sharing"
+    },
+    {
+        "company": "Gigaschool",
+        "PM": "Бодрягин",
+        "document_type": "Доп. соглашение",
+        "id": "-",
+        "date": "02.01.2024",
+        "addictional_to": "28-29-HOST",
+        "Тип услуги": "хостинг",
+        "sum": "р.80 000",
+        "document": "https://docs.google.com/document/d/1d_rqJ6oAXKfOa5axLuCRcHqK_vSuu_GlO5i5Bbl44fs/edit?usp=sharing"
+    }
+]
